@@ -53,14 +53,22 @@ public class HomeWork4 {
 
     static ArrayList<Integer> sortdata_age() {
         ArrayList<Integer> sorted_keys = new ArrayList<>();
-        ArrayList<Integer> tmp_age = new ArrayList<>();
-        tmp_age.addAll(age);
-        for (int i = 0; i < age.size(); i++) {
-            sorted_keys.add(age.indexOf(Collections.min(tmp_age)));
-            tmp_age.remove(tmp_age
-                    .indexOf(Collections
-                            .min(tmp_age)));
-        }
+        sorted_keys.addAll(keys);
+        sorted_keys.sort(new Comparator<Integer>() {
+                             @Override
+                             public int compare(Integer o1, Integer o2) {
+                                 return age.get(o1) - age.get(o2);
+                             }
+                         });
+
+//        ArrayList<Integer> tmp_age = new ArrayList<>();
+//        tmp_age.addAll(age);
+//        for (int i = 0; i < age.size(); i++) {
+//            sorted_keys.add(age.indexOf(Collections.min(tmp_age)));
+//            tmp_age.remove(tmp_age
+//                    .indexOf(Collections
+//                            .min(tmp_age)));
+//          }
         return sorted_keys;
     }
 
